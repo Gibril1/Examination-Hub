@@ -1,0 +1,51 @@
+{% extends 'layout.html' %}
+
+
+
+{% block content %}
+<section>
+    <form action="" method="POST">
+        {{ form.csrf_token }}
+        {{ form.name }}
+        <fieldset>
+            
+            <div>
+                {{form.subject.label}}
+                {% if form.subject.errors %}
+                    {{form.subject}}
+                    {% for error in form.subject.errors %}
+                        <small>{{ error }}</small>
+                    {% endfor %}
+                {% else %}
+                    {{ form.subject }}
+                {% endif %}
+            </div>
+            <div>
+                {{form.year.label}}
+                {% if form.year.errors %}
+                    {{form.year}}
+                    {% for error in form.year.errors %}
+                        <small>{{ error }}</small>
+                    {% endfor %}
+                {% else %}
+                    {{ form.year }}
+                {% endif %}
+            </div>
+            <div>
+                {{ form.set_quiz }}
+            </div>
+            
+            
+
+            
+            
+            
+        </fieldset>
+        
+        
+    </form>
+</section>
+
+
+{% endblock content %}
+

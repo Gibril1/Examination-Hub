@@ -1,0 +1,17 @@
+<!-- This is the html page that displays the available quizzes for the user to select from -->
+
+{% extends 'layout.html' %}
+
+{% block content %}
+<main>
+    {% for quiz in quizzes %}
+        <article>
+            <p>{{ quiz.subject }}</p>
+            <p>Year: {{ quiz.year }}</p>
+            <p>By {{ quiz.author.username }}</p>
+        </article>
+    {% endfor %}
+</main>
+
+
+{% endblock content %}

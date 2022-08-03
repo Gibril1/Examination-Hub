@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+
+
+
+{% block content %}
+    {% with messages = get_flashed_messages(with_categories = true) %}
+        {% if messages %}
+            {% for category, msg in messages %}
+                <p class="{{category}}">{{ msg }}</p>
+            
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+<section>
+    <form action="" method="POST">
+        {{ form.csrf_token }}
+        {{ form.name }}
+        <fieldset>
+            <div>
+                {{form.question.label}}
+                {% if form.question.errors %}
+                    {{form.question}}
+                    {% for error in form.question.errors %}
+                        <small>{{ error }}</small>
+                    {% endfor %}
+                {% else %}
+                    {{ form.question }}
+                {% endif %}
+            </div>
+            <div>
+                {{form.answers.label}}
+                {% if form.answers.errors %}
+                    {{form.answers}}
+                    {% for error in form.answers.errors %}
+                        <small>{{ error }}</small>
+                    {% endfor %}
+                {% else %}
+                    {{ form.answers }}
+                {% endif %}
+            </div>
+            <div>
+                {{ form.post }}
+            </div>
+        </fieldset>
+    </form>
+    
+</section>
+{% endblock content %}
