@@ -17,7 +17,7 @@
         {{ form.name }}
         <fieldset>
             <div>
-                {{form.question.label}}
+                {{ form.question.label }}
                 {% if form.question.errors %}
                     {{form.question}}
                     {% for error in form.question.errors %}
@@ -28,7 +28,7 @@
                 {% endif %}
             </div>
             <div>
-                {{form.answers.label}}
+                {{ form.answers.label }}
                 {% if form.answers.errors %}
                     {{form.answers}}
                     {% for error in form.answers.errors %}
@@ -41,8 +41,8 @@
             <div>
                 {{ form.post }}
             </div>
+            <input id="clear">
         </fieldset>
     </form>
-    
 </section>
 {% endblock content %}

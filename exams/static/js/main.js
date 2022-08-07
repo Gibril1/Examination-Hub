@@ -1,8 +1,8 @@
 const question = document.getElementById('question');
 const answer = document.getElementById('answers');
-const post = document.getElementById('post');
+const clear = document.getElementById('clear');
 
-post.addEventListener('click', (e) => {
+clear.addEventListener('click', (e) => {
     e.preventDefault();
     question.value = '';
     answer.value = '';

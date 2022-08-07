@@ -39,7 +39,7 @@ class Question(db.Model):
     quiz_id = db.Column(db.Integer, db.ForeignKey('quiz.id'), nullable=False)
 
     def __repr__(self):
-        return f'Question({self.question_text}, {self.answer_text})'    
+        return f'Question({self.id},{self.question_text}, {self.answer_text}, {self.quiz_id})'    
     
     
 

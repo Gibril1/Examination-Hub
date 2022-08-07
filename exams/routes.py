@@ -1,6 +1,4 @@
-
 from flask import render_template, request, url_for, redirect, flash
-
 from exams import bcrypt, db, app
 from exams.forms import RegistrationForm, LoginForm, QuestionForm, QuizForm
 from exams.models import Users, Question, Quiz
@@ -67,6 +65,13 @@ def set_questions(quiz_id):
         questions = Question(question_text=form.question.data, answer_text=form.answers.data,quiz_id=quiz_id)
         db.session.add(questions)
         db.session.commit()
+        print(questions)
     return render_template('questionhub.html',form=form)
+
+# this is the route for solving questions
+@app.route('/solve/<int:quiz_id>', methods=['GET'])
+def solve_questions(quiz_id):
+    solvable_questions = Question.query.filter_by(quiz_id=quiz_id).all()
+    return render_template('solve.html', solvable_questions=solvable_questions)
 
 
