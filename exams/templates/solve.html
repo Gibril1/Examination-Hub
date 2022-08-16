@@ -1,14 +1,21 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-    {% for question in solvable_questions %}
-        <p>{{ loop.index }}.&nbsp;{{ question.question_text }}</p>
-        {% set split_answers = question.answer_text.split(',') %}
-        <form action="">
-            {% for answer in split_answers %}
-                <input type="checkbox">{{answer}}
-            {% endfor %}
-        </form>
+    <section class="dotted">
+        {% for question in solvable_questions %}
+        <div class="dotted">
+            <p>{{ loop.index }}.&nbsp;{{ question.question_text }}</p>
+            {% set split_answers = question.answer_text.split(',') %}
+            <form>
+                {% for answer in split_answers %}
+                    <input type="checkbox">{{answer}} <br>
+                {% endfor %}
+                
+            </form>
+        </div>
+        
         
     {% endfor %}
+    </section>
+    
 {% endblock content %}

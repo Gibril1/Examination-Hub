@@ -11,37 +11,37 @@
             {% endfor %}
         {% endif %}
     {% endwith %}
-<section>
-    <form action="" method="POST">
+<section class="container">
+    <form class="form" method="POST">
         {{ form.csrf_token }}
         {{ form.name }}
         <fieldset>
-            <div>
+            <div class="form-group">
                 {{ form.question.label }}
                 {% if form.question.errors %}
-                    {{form.question}}
+                    {{form.question (class="form-control")}}
                     {% for error in form.question.errors %}
                         <small>{{ error }}</small>
                     {% endfor %}
                 {% else %}
-                    {{ form.question }}
+                    {{ form.question (class="form-control") }}
                 {% endif %}
             </div>
-            <div>
+            <div class="form-group">
                 {{ form.answers.label }}
                 {% if form.answers.errors %}
-                    {{form.answers}}
+                    {{form.answers (class="form-control")}}
                     {% for error in form.answers.errors %}
                         <small>{{ error }}</small>
                     {% endfor %}
                 {% else %}
-                    {{ form.answers }}
+                    {{ form.answers (class="form-control") }}
                 {% endif %}
             </div>
-            <div>
-                {{ form.post }}
+            <div class="form-group">
+                {{ form.post (class="btn") }}
             </div>
-            <input id="clear">
+            <input id="clear" class="form-control btn btn-red">
         </fieldset>
     </form>
 </section>

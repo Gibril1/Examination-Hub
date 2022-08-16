@@ -3,12 +3,14 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-<main>
+<main class="blog-list">
     {% for quiz in quizzes %}
-        <article>
-            <p>{{ quiz.subject }}</p>
-            <p>Year: {{ quiz.year }}</p>
-            <p>By {{ quiz.author.username }}</p>
+        <article class="quiz-preview">
+            <a href="{{ url_for('solve_questions', quiz_id=quiz.id) }}">
+                <h2>{{ quiz.subject }}</h2>
+                <p>Year: {{ quiz.year }}</p>
+                <p>Written by {{ quiz.author.username }}</p>
+            </a>    
         </article>
     {% endfor %}
 </main>

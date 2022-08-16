@@ -30,6 +30,7 @@ def register():
     return render_template('register.html', form = form)
 
 # login route
+
 @app.route('/login', methods=['POST', 'GET'])
 def login():
     form = LoginForm()
@@ -69,7 +70,7 @@ def set_questions(quiz_id):
     return render_template('questionhub.html',form=form)
 
 # this is the route for solving questions
-@app.route('/solve/<int:quiz_id>', methods=['GET'])
+@app.route('/solve/<int:quiz_id>', methods=['GET', 'POST'])
 def solve_questions(quiz_id):
     solvable_questions = Question.query.filter_by(quiz_id=quiz_id).all()
     return render_template('solve.html', solvable_questions=solvable_questions)

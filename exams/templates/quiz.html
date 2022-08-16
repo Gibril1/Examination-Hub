@@ -4,35 +4,35 @@
 
 {% block content %}
 <section>
-    <form action="" method="POST">
+    <form class="form" method="POST">
         {{ form.csrf_token }}
         {{ form.name }}
         <fieldset>
             
-            <div>
+            <div class="form-group">
                 {{form.subject.label}}
                 {% if form.subject.errors %}
-                    {{form.subject}}
+                    {{form.subject (class="form-control") }}
                     {% for error in form.subject.errors %}
                         <small>{{ error }}</small>
                     {% endfor %}
                 {% else %}
-                    {{ form.subject }}
+                    {{ form.subject (class="form-control") }}
                 {% endif %}
             </div>
-            <div>
+            <div class="form-group">
                 {{form.year.label}}
                 {% if form.year.errors %}
-                    {{form.year}}
+                    {{form.year (class="form-control") }}
                     {% for error in form.year.errors %}
                         <small>{{ error }}</small>
                     {% endfor %}
                 {% else %}
-                    {{ form.year }}
+                    {{ form.year (class="form-control") }}
                 {% endif %}
             </div>
-            <div>
-                {{ form.set_quiz }}
+            <div class="form-group">
+                {{ form.set_quiz (class="btn btn-block") }}
             </div>
             
             
